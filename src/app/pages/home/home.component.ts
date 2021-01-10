@@ -8,6 +8,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
+  casesDataset:any[] = [];
+  deathDataset:any[] = [];
+  ready:boolean = false;
+
   constructor(
     private http: HttpClient
   ) { }
@@ -23,6 +27,8 @@ export class HomeComponent implements OnInit {
         }
     );
   }
+
+
 
   csvToJson(dataset:string) {
     var lines = dataset.split("\n");
@@ -41,6 +47,26 @@ export class HomeComponent implements OnInit {
     }
 
     console.log(result);
+    this.buildCasesDataset(result);
+    this.buildDeathDataset(result);
+    this.ready = true;
   }
 
+
+
+  buildCasesDataset(data:any[]) {
+    let dataset = [];
+    for(let d of data) {
+      dataset.push({date: d["Data"], total: d["Casos Confirmados"]});
+    }
+    this.casesDataset = dataset;
+  }
+
+  buildDeathDataset(data:any[]) {
+    let dataset = [];
+    for(let d of data) {
+      dataset.push({date: d["Data"], total: d["Obito"]});
+    }
+    this.deathDataset = dataset;
+  }
 }

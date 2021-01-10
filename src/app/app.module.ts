@@ -6,11 +6,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { LineChartComponent } from './components/line-chart/line-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,
