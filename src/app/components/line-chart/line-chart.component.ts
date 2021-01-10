@@ -65,7 +65,7 @@ export class LineChartComponent implements OnInit {
         }
       },
       yAxis: {
-        gridLineWidth: 0,
+        gridLineWidth: 1,
         title: {
           text: ''
         }
