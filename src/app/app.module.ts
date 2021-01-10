@@ -7,12 +7,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
+import { ColumnChartComponent } from './components/column-chart/column-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LineChartComponent
+    LineChartComponent,
+    ColumnChartComponent
   ],
   imports: [
     BrowserModule,

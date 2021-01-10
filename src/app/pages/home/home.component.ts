@@ -10,6 +10,10 @@ export class HomeComponent implements OnInit {
 
   casesDataset:any[] = [];
   deathDataset:any[] = [];
+
+  casesByDayDataset:any[] = [];
+  deathByDayDataset:any[] = [];
+
   ready:boolean = false;
 
   constructor(
@@ -49,6 +53,8 @@ export class HomeComponent implements OnInit {
     console.log(result);
     this.buildCasesDataset(result);
     this.buildDeathDataset(result);
+    this.buildCasesByDayDataset(result);
+    this.buildDeathByDayDataset(result);
     this.ready = true;
   }
 
@@ -68,5 +74,31 @@ export class HomeComponent implements OnInit {
       dataset.push({date: d["Data"], total: d["Obito"]});
     }
     this.deathDataset = dataset;
+  }
+
+  buildCasesByDayDataset(data:any[]) {
+    let dataset = [];
+    for(let i=1; i<data.length; i++) {
+      dataset.push(
+        {
+          date: data[i]["Data"],
+          total: Number(data[i]["Casos Confirmados"]) - Number(data[i-1]["Casos Confirmados"])
+        }
+      );
+    }
+    this.casesByDayDataset = dataset;
+  }
+
+  buildDeathByDayDataset(data:any[]) {
+    let dataset = [];
+    for(let i=1; i<data.length; i++) {
+      dataset.push(
+        {
+          date: data[i]["Data"],
+          total: Number(data[i]["Obito"]) - Number(data[i-1]["Obito"])
+        }
+      );
+    }
+    this.deathByDayDataset = dataset;
   }
 }

@@ -58,7 +58,11 @@ export class LineChartComponent implements OnInit {
         enabled: false
       },
       xAxis: {
-        categories: labels
+        categories: labels,
+        labels:{
+          rotation: 270,
+          y: 10
+        }
       },
       yAxis: {
         gridLineWidth: 0,

@@ -1,0 +1,9 @@
+:host {
+  .column-chart {
+    width: 100%;
+    height: auto;
+    margin-top: 120px;
+
+    .highcharts-container { overflow: visible !important; }
+  }
+}

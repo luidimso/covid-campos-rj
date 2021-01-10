@@ -1,2 +1,30 @@
-<app-line-chart *ngIf="ready" [index]="1" [dataset]="casesDataset" chartTitle="Evolução do total de casos confirmados" chartColor="#1951D1"></app-line-chart>
-<app-line-chart *ngIf="ready" [index]="2" [dataset]="deathDataset" chartTitle="Evolução do total de óbitos" chartColor="#ff5656"></app-line-chart>
+<app-line-chart
+  *ngIf="ready"
+  [index]="1"
+  [dataset]="casesDataset"
+  chartTitle="Evolução do total de casos confirmados"
+  chartColor="#1951D1">
+</app-line-chart>
+<app-line-chart
+  *ngIf="ready"
+  [index]="2"
+  [dataset]="deathDataset"
+  chartTitle="Evolução do total de óbitos"
+  chartColor="#ff5656">
+</app-line-chart>
+
+<app-column-chart
+  *ngIf="ready"
+  [index]="1"
+  [dataset]="casesByDayDataset"
+  chartTitle="Casos confirmados por dia"
+  chartColor="#1951D1">
+</app-column-chart>
+
+<app-column-chart
+  *ngIf="ready"
+  [index]="2"
+  [dataset]="deathByDayDataset"
+  chartTitle="Óbitos por dia"
+  chartColor="#ff5656">
+</app-column-chart>
