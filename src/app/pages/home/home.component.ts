@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   deathAverageDataset:any[] = [];
 
   ready:boolean = false;
+  filterWeeks:number = 0;
 
   constructor(
     private http: HttpClient
@@ -156,5 +157,10 @@ export class HomeComponent implements OnInit {
     }
 
     return average = sum/totalSum;
+  }
+
+
+  updateFilter(weeks:number) {
+    this.filterWeeks = weeks;
   }
 }

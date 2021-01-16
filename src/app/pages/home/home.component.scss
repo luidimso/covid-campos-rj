@@ -1,0 +1,24 @@
+:host {
+  .filter-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .filter-btn {
+      background-color: #E8EAEC;
+      padding: 10px 20px;
+      font-size: 0.85em;
+      margin-right: 30px;
+      border-radius: 50px;
+      color: #0d0d0d;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .filter-btn-selected {
+      background-color: #1a73e8;
+      color: white;
+    }
+  }
+}

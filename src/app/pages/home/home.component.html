@@ -1,32 +1,49 @@
-<app-line-chart
-  *ngIf="ready"
-  [index]="1"
-  [dataset]="casesDataset"
-  chartTitle="Evolução do total de casos confirmados"
-  chartColor="#1951D1">
-</app-line-chart>
-<app-line-chart
-  *ngIf="ready"
-  [index]="2"
-  [dataset]="deathDataset"
-  chartTitle="Evolução do total de óbitos"
-  chartColor="#ff5656">
-</app-line-chart>
+<main>
+  <div class="filter-section">
+    <div class="filter-btn" [class.filter-btn-selected]="filterWeeks == 0" (click)="updateFilter(0)">
+      Todo o período
+    </div>
+    <div class="filter-btn" [class.filter-btn-selected]="filterWeeks == 1" (click)="updateFilter(1)">
+      Últimos 7 dias
+    </div>
+    <div class="filter-btn" [class.filter-btn-selected]="filterWeeks == 4" (click)="updateFilter(4)">
+      Últimas 4 semanas
+    </div>
+    <div class="filter-btn" [class.filter-btn-selected]="filterWeeks == 12" (click)="updateFilter(12)">
+      Últimos 3 meses
+    </div>
+  </div>
 
-<app-column-chart
-  *ngIf="ready"
-  [index]="1"
-  [dataset]="casesByDayDataset"
-  [datasetAverage]="casesAverageDataset"
-  chartTitle="Casos confirmados por dia"
-  chartColor="#1951D1">
-</app-column-chart>
+  <app-line-chart
+    *ngIf="ready"
+    [index]="1"
+    [dataset]="casesDataset"
+    chartTitle="Evolução do total de casos confirmados"
+    chartColor="#1951D1">
+  </app-line-chart>
+  <app-line-chart
+    *ngIf="ready"
+    [index]="2"
+    [dataset]="deathDataset"
+    chartTitle="Evolução do total de óbitos"
+    chartColor="#ff5656">
+  </app-line-chart>
 
-<app-column-chart
-  *ngIf="ready"
-  [index]="2"
-  [dataset]="deathByDayDataset"
-  [datasetAverage]="deathAverageDataset"
-  chartTitle="Óbitos por dia"
-  chartColor="#ff5656">
-</app-column-chart>
+  <app-column-chart
+    *ngIf="ready"
+    [index]="1"
+    [dataset]="casesByDayDataset"
+    [datasetAverage]="casesAverageDataset"
+    chartTitle="Casos confirmados por dia"
+    chartColor="#1951D1">
+  </app-column-chart>
+
+  <app-column-chart
+    *ngIf="ready"
+    [index]="2"
+    [dataset]="deathByDayDataset"
+    [datasetAverage]="deathAverageDataset"
+    chartTitle="Óbitos por dia"
+    chartColor="#ff5656">
+  </app-column-chart>
+</main>
