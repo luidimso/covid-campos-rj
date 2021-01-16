@@ -17,6 +17,7 @@
   *ngIf="ready"
   [index]="1"
   [dataset]="casesByDayDataset"
+  [datasetAverage]="casesAverageDataset"
   chartTitle="Casos confirmados por dia"
   chartColor="#1951D1">
 </app-column-chart>
@@ -25,6 +26,7 @@
   *ngIf="ready"
   [index]="2"
   [dataset]="deathByDayDataset"
+  [datasetAverage]="deathAverageDataset"
   chartTitle="Óbitos por dia"
   chartColor="#ff5656">
 </app-column-chart>

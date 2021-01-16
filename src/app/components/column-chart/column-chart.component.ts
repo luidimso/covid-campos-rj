@@ -19,6 +19,7 @@ noData(Highcharts);
 export class ColumnChartComponent implements OnInit {
 
   @Input() dataset:any[];
+  @Input() datasetAverage:any[];
   @Input() chartTitle:string;
   @Input() chartColor:string
   @Input() index:number;
@@ -34,10 +35,18 @@ export class ColumnChartComponent implements OnInit {
 
   buildLineChart(){
     let data = [];
+    let average = [];
 
     for(let d of this.dataset){
       data.push({
         y: Number(d.total),
+        name: d.date
+      });
+    }
+
+    for(let d of this.datasetAverage){
+      average.push({
+        y: d.total,
         name: d.date
       });
     }
@@ -93,6 +102,12 @@ export class ColumnChartComponent implements OnInit {
             name: "Total",
             colorByPoint: true,
             data: data
+        },
+        {
+            name: 'Media móvel',
+            type: 'spline',
+            data: average,
+            color: '#0d0d0d'
         }
     ],
     tooltip: {

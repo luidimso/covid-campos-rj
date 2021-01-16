@@ -14,6 +14,9 @@ export class HomeComponent implements OnInit {
   casesByDayDataset:any[] = [];
   deathByDayDataset:any[] = [];
 
+  casesAverageDataset:any[] = [];
+  deathAverageDataset:any[] = [];
+
   ready:boolean = false;
 
   constructor(
@@ -68,6 +71,9 @@ export class HomeComponent implements OnInit {
     this.casesDataset = dataset;
   }
 
+
+
+
   buildDeathDataset(data:any[]) {
     let dataset = [];
     for(let d of data) {
@@ -76,18 +82,37 @@ export class HomeComponent implements OnInit {
     this.deathDataset = dataset;
   }
 
+
+
+
   buildCasesByDayDataset(data:any[]) {
     let dataset = [];
     for(let i=1; i<data.length; i++) {
+      if(data[i]["Data"]) {
+        dataset.push(
+          {
+            date: data[i]["Data"],
+            total: Number(data[i]["Casos Confirmados"]) - Number(data[i-1]["Casos Confirmados"])
+          }
+        );
+      }
+    }
+    this.casesByDayDataset = dataset;
+
+    dataset = [];
+    for(let i=0; i<this.casesByDayDataset.length; i++) {
       dataset.push(
         {
-          date: data[i]["Data"],
-          total: Number(data[i]["Casos Confirmados"]) - Number(data[i-1]["Casos Confirmados"])
+          date: this.casesByDayDataset[i].date,
+          total: this.calcAverage(this.casesByDayDataset, i)
         }
       );
     }
-    this.casesByDayDataset = dataset;
+    this.casesAverageDataset = dataset;
   }
+
+
+
 
   buildDeathByDayDataset(data:any[]) {
     let dataset = [];
@@ -100,5 +125,36 @@ export class HomeComponent implements OnInit {
       );
     }
     this.deathByDayDataset = dataset;
+
+    dataset = [];
+    for(let i=0; i<this.deathByDayDataset.length; i++) {
+      dataset.push(
+        {
+          date: this.deathByDayDataset[i].date,
+          total: this.calcAverage(this.deathByDayDataset, i)
+        }
+      );
+    }
+    this.deathAverageDataset = dataset;
+  }
+
+
+
+
+  calcAverage(dataset:any[], index:number) {
+    let average = 0;
+    let sum = dataset[index].total;
+    let totalSum = 1;
+
+    for(let j=1; j<7; j++) {
+      if(index-j < 0) {
+        j = 7;
+      } else {
+        sum += dataset[index-j].total;
+        totalSum++;
+      }
+    }
+
+    return average = sum/totalSum;
   }
 }
