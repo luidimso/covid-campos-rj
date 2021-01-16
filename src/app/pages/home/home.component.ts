@@ -17,6 +17,15 @@ export class HomeComponent implements OnInit {
   casesAverageDataset:any[] = [];
   deathAverageDataset:any[] = [];
 
+  aux = {
+    cases: [],
+    death: [],
+    casesByDay: [],
+    deathByDay: [],
+    casesAverage: [],
+    deathAverage: []
+  };
+
   ready:boolean = false;
   filterWeeks:number = 0;
 
@@ -70,6 +79,7 @@ export class HomeComponent implements OnInit {
       dataset.push({date: d["Data"], total: d["Casos Confirmados"]});
     }
     this.casesDataset = dataset;
+    this.aux.cases = this.casesDataset;
   }
 
 
@@ -81,6 +91,7 @@ export class HomeComponent implements OnInit {
       dataset.push({date: d["Data"], total: d["Obito"]});
     }
     this.deathDataset = dataset;
+    this.aux.death = this.deathDataset;
   }
 
 
@@ -99,6 +110,7 @@ export class HomeComponent implements OnInit {
       }
     }
     this.casesByDayDataset = dataset;
+    this.aux.casesByDay = this.casesByDayDataset;
 
     dataset = [];
     for(let i=0; i<this.casesByDayDataset.length; i++) {
@@ -110,6 +122,7 @@ export class HomeComponent implements OnInit {
       );
     }
     this.casesAverageDataset = dataset;
+    this.aux.casesAverage = this.casesAverageDataset;
   }
 
 
@@ -126,6 +139,7 @@ export class HomeComponent implements OnInit {
       );
     }
     this.deathByDayDataset = dataset;
+    this.aux.deathByDay = this.deathByDayDataset;
 
     dataset = [];
     for(let i=0; i<this.deathByDayDataset.length; i++) {
@@ -137,6 +151,7 @@ export class HomeComponent implements OnInit {
       );
     }
     this.deathAverageDataset = dataset;
+    this.aux.deathAverage = this.deathAverageDataset;
   }
 
 
@@ -162,5 +177,39 @@ export class HomeComponent implements OnInit {
 
   updateFilter(weeks:number) {
     this.filterWeeks = weeks;
+    this.ready = false;
+
+    if(this.filterWeeks == 0) {
+      this.casesDataset = this.aux.cases;
+      this.deathDataset = this.aux.death;
+      this.casesByDayDataset = this.aux.casesByDay;
+      this.deathByDayDataset = this.aux.deathByDay;
+      this.casesAverageDataset = this.aux.casesAverage;
+      this.deathAverageDataset = this.aux.deathAverage;
+    } else {
+      let daysToFilter = this.filterWeeks * 7;
+      let datasetLength = this.aux.cases.length-1;
+      let datasetByDayLength = this.aux.casesByDay.length-1;
+
+      this.casesDataset = [];
+      this.deathDataset = [];
+      this.casesByDayDataset = [];
+      this.deathByDayDataset = [];
+      this.casesAverageDataset = [];
+      this.deathAverageDataset = [];
+
+      for(let i=daysToFilter; i>=0; i--) {
+        this.casesDataset.push(this.aux.cases[datasetLength - i]);
+        this.deathDataset.push(this.aux.death[datasetLength - i]);
+        this.casesByDayDataset.push(this.aux.casesByDay[datasetByDayLength - i]);
+        this.deathByDayDataset.push(this.aux.deathByDay[datasetByDayLength - i]);
+        this.casesAverageDataset.push(this.aux.casesAverage[datasetByDayLength - i]);
+        this.deathAverageDataset.push(this.aux.deathAverage[datasetByDayLength - i]);
+      }
+    }
+
+    setTimeout(() => {
+      this.ready = true;
+    })
   }
 }
