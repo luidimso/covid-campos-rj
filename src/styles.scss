@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {font-family: "Flexo Thin"; src: url("//db.onlinewebfonts.com/t/84253455d9c02e0cdd20ea402a99c9e5.eot"); src: url("//db.onlinewebfonts.com/t/84253455d9c02e0cdd20ea402a99c9e5.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/84253455d9c02e0cdd20ea402a99c9e5.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/84253455d9c02e0cdd20ea402a99c9e5.woff") format("woff"), url("//db.onlinewebfonts.com/t/84253455d9c02e0cdd20ea402a99c9e5.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/84253455d9c02e0cdd20ea402a99c9e5.svg#Flexo Thin") format("svg"); }
+
+html, body {
+  font-family: "Flexo", Helvetica, Arial, sans-serif !important;
+}
 
 body {
   background-color: lightsteelblue;
