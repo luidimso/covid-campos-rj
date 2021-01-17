@@ -12,6 +12,8 @@
 
   <p class="small"><small *ngIf="error">Falha ao carregar os dados. Verifique sua conexão com a internet ou tente mais tarde.</small></p>
 
+  <p class="filter-label" *ngIf="ready"><b>Selecione o período que deseja ver os dados</b></p>
+
   <div class="filter-section" *ngIf="ready">
     <div class="filter-btn" [class.filter-btn-selected]="filterWeeks == 0" (click)="updateFilter(0)">
       Todo o período
