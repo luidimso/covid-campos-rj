@@ -1,24 +1,52 @@
 :host {
-  .filter-section {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  main {
+    background-color: white;
+    width: 90%;
+    margin: 10px auto;
+    border-radius: 10px;
+    padding: 10px;
+    min-height: 1000px;
+    color: #5d5d5d;
 
-    .filter-btn {
-      background-color: #E8EAEC;
-      padding: 10px 20px;
-      font-size: 0.85em;
-      margin-right: 30px;
-      border-radius: 50px;
-      color: #0d0d0d;
-      font-weight: bold;
-      cursor: pointer;
+    header {
+      padding: 10px 0;
+      margin: 0 4%;
+      text-align: justify;
     }
 
-    .filter-btn-selected {
-      background-color: #1a73e8;
-      color: white;
+    .spinner {
+      height: 50px;
+      width: 50px;
+      margin: auto;
+    }
+
+    .small {
+      text-align: center;
+    }
+
+    .filter-section {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: -90px;
+
+      .filter-btn {
+        background-color: #E8EAEC;
+        padding: 10px 20px;
+        font-size: 0.85em;
+        margin: 10px;
+        border-radius: 50px;
+        color: #0d0d0d;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .filter-btn-selected {
+        background-color: #1a73e8;
+        color: white;
+      }
     }
   }
 }

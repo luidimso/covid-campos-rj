@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
 
   ready:boolean = false;
   filterWeeks:number = 0;
+  error:boolean = false;
 
   constructor(
     private http: HttpClient
@@ -40,7 +41,7 @@ export class HomeComponent implements OnInit {
           this.csvToJson(data);
         },
         error => {
-            console.log(error);
+          this.error = true;
         }
     );
   }

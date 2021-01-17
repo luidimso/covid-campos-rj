@@ -1,5 +1,18 @@
 <main>
-  <div class="filter-section">
+  <header>
+    <h2>Coronavírus - Campos dos Goytacazes</h2>
+    <p>Confira os dados dos casos confirmados de coronavírus e óbitos por Covid-19 na cidade de Campos dos Goytacazes - RJ.
+      Os dados são coletados dos <a href="https://www.campos.rj.gov.br/search.php?s=boletim" target="_blank">boletins informativos</a> da prefeitura de Campos dos Goytacazes e atualizados automaticamente.
+      <a href="https://github.com/Lucas12j/Casos_Covid_Campos_dos_Goytacazes" target="_blank">Aqui</a> você pode acessar o repositório da base de dados.</p>
+  </header>
+
+  <div class="spinner" *ngIf="!ready">
+    <mat-spinner diameter="50"></mat-spinner>
+  </div>
+
+  <p class="small"><small *ngIf="error">Falha ao carregar os dados. Verifique sua conexão com a internet ou tente mais tarde.</small></p>
+
+  <div class="filter-section" *ngIf="ready">
     <div class="filter-btn" [class.filter-btn-selected]="filterWeeks == 0" (click)="updateFilter(0)">
       Todo o período
     </div>
@@ -46,4 +59,6 @@
     chartTitle="Óbitos por dia"
     chartColor="#ff5656">
   </app-column-chart>
+
+  <p class="small" *ngIf="ready"><small>Feito por <a href="https://www.linkedin.com/in/luidi-matheus-554552157/" target="_blank">Luidi Matheus</a> e <a href="https://www.linkedin.com/in/contato-lucas-da-silva-dos-santos/" target="_blank">Lucas Santos</a></small></p>
 </main>

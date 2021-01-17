@@ -104,7 +104,7 @@ export class ColumnChartComponent implements OnInit {
             data: data
         },
         {
-            name: 'Media móvel',
+            name: 'Média móvel',
             type: 'spline',
             data: average,
             color: '#0d0d0d'
