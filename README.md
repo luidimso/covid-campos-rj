@@ -1,6 +1,6 @@
 # CasosCovidCamposPage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8 and can be viewed [here](https://luidimso.github.io/covid-campos-rj/).
 
 ## Development server
 
