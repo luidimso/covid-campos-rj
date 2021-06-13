@@ -36,12 +36,29 @@
     chartTitle="Evolução do total de casos confirmados"
     chartColor="#1951D1">
   </app-line-chart>
+
   <app-line-chart
     *ngIf="ready"
     [index]="2"
     [dataset]="deathDataset"
     chartTitle="Evolução do total de óbitos"
     chartColor="#ff5656">
+  </app-line-chart>
+
+  <app-line-chart
+    *ngIf="ready"
+    [index]="3"
+    [dataset]="firstVacineDataset"
+    chartTitle="Evolução do total de vacinados com a 1º dose"
+    chartColor="#ff7200">
+  </app-line-chart>
+
+  <app-line-chart
+    *ngIf="ready"
+    [index]="4"
+    [dataset]="secondVacineDataset"
+    chartTitle="Evolução do total de vacinados com a 2º dose"
+    chartColor="#009300">
   </app-line-chart>
 
   <app-column-chart
@@ -60,6 +77,24 @@
     [datasetAverage]="deathAverageDataset"
     chartTitle="Óbitos por dia"
     chartColor="#ff5656">
+  </app-column-chart>
+
+  <app-column-chart
+    *ngIf="ready"
+    [index]="3"
+    [dataset]="firstVacineByDayDataset"
+    [datasetAverage]="firstVacineAverageDataset"
+    chartTitle="Vacinados com a 1º dose por dia"
+    chartColor="#ff7200">
+  </app-column-chart>
+
+  <app-column-chart
+    *ngIf="ready"
+    [index]="4"
+    [dataset]="secondVacineByDayDataset"
+    [datasetAverage]="secondVacineAverageDataset"
+    chartTitle="Vacinados com a 2º dose por dia"
+    chartColor="#009300">
   </app-column-chart>
 
   <p class="small" *ngIf="ready"><small>Feito por <a href="https://www.linkedin.com/in/luidi-matheus-554552157/" target="_blank">Luidi Matheus</a> e <a href="https://www.linkedin.com/in/contato-lucas-da-silva-dos-santos/" target="_blank">Lucas Santos</a></small></p>
