@@ -304,7 +304,7 @@ export class HomeComponent implements OnInit {
       this.casesAverageDataset = this.aux.casesAverage;
       this.deathAverageDataset = this.aux.deathAverage;
       this.firstVacineAverageDataset = this.aux.firstVacineAverage;
-      this.secondVacineByDayDataset =  this.aux.secondVacineAverage;
+      this.secondVacineAverageDataset =  this.aux.secondVacineAverage;
     } else {
       let daysToFilter = this.filterWeeks * 7;
       let datasetLength = this.aux.cases.length-1;
